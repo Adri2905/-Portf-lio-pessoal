@@ -1,0 +1,333 @@
+/* =========================================================
+   VARIÁVEIS GLOBAIS
+========================================================= */
+:root {
+  --cor-fundo: #0f172a;
+  --cor-fundo-clara: #1e293b;
+  --cor-texto: #e2e8f0;
+  --cor-texto-suave: #94a3b8;
+  --cor-destaque: #38bdf8;
+  --cor-destaque-escura: #0ea5e9;
+  --fonte-titulo: 'Segoe UI', Verdana, sans-serif;
+  --fonte-texto: 'Segoe UI', Arial, sans-serif;
+  --espacamento: 1.5rem;
+  --raio: 10px;
+}
+
+/* =========================================================
+   RESET E BASE
+========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fonte-texto);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--fonte-titulo);
+}
+
+a {
+  color: var(--cor-destaque);
+  text-decoration: none;
+}
+
+section {
+  padding: 4rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* =========================================================
+   CABEÇALHO / MENU (FLEXBOX)
+========================================================= */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--cor-fundo-clara);
+  z-index: 10;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.nav__logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--cor-texto);
+}
+
+.nav__logo span {
+  color: var(--cor-destaque);
+}
+
+.nav__lista {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav__lista a {
+  color: var(--cor-texto);
+  transition: color 0.2s;
+}
+
+.nav__lista a:hover {
+  color: var(--cor-destaque);
+}
+
+/* =========================================================
+   SOBRE MIM (GRID + GRID-TEMPLATE-AREAS)
+========================================================= */
+.sobre__conteudo {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-areas: "foto texto";
+  gap: var(--espacamento);
+  align-items: center;
+}
+
+.sobre__foto {
+  grid-area: foto;
+  width: 100%;
+  border-radius: 50%;
+  border: 3px solid var(--cor-destaque);
+}
+
+.sobre__texto {
+  grid-area: texto;
+}
+
+.sobre__texto h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.sobre__texto h2 {
+  font-size: 1.1rem;
+  color: var(--cor-texto-suave);
+  font-weight: normal;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+/* =========================================================
+   HABILIDADES (GRID)
+========================================================= */
+.habilidades__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espacamento);
+}
+
+.skill-card {
+  background-color: var(--cor-fundo-clara);
+  padding: 1.2rem;
+  border-radius: var(--raio);
+  text-align: center;
+}
+
+.skill-card h3 {
+  color: var(--cor-destaque);
+  margin-bottom: 0.5rem;
+}
+
+/* =========================================================
+   PROJETOS (GRID PARA GALERIA + FLEXBOX PARA CARD INTERNO)
+========================================================= */
+.projetos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--espacamento);
+}
+
+.card-projeto {
+  background-color: var(--cor-fundo-clara);
+  border-radius: var(--raio);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-projeto img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-projeto__corpo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem;
+  flex: 1;
+}
+
+.card-projeto__corpo p {
+  flex: 1;
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+}
+
+.botao {
+  align-self: flex-start;
+  background-color: var(--cor-destaque);
+  color: var(--cor-fundo);
+  padding: 0.5rem 1rem;
+  border-radius: var(--raio);
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.botao:hover {
+  background-color: var(--cor-destaque-escura);
+}
+
+/* =========================================================
+   FORMAÇÃO E EXPERIÊNCIA (GRID)
+========================================================= */
+.formacao__area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacamento);
+}
+
+.item-formacao {
+  background-color: var(--cor-fundo-clara);
+  padding: 1.2rem;
+  border-radius: var(--raio);
+  margin-bottom: 1rem;
+}
+
+.item-formacao span {
+  display: block;
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+  margin: 0.3rem 0;
+}
+
+/* =========================================================
+   CONTATO (FLEXBOX)
+========================================================= */
+.contato {
+  text-align: center;
+}
+
+.contato__links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.contato__links a {
+  background-color: var(--cor-fundo-clara);
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--raio);
+}
+
+.contato__links a:hover {
+  background-color: var(--cor-destaque-escura);
+  color: var(--cor-fundo);
+}
+
+/* =========================================================
+   RODAPÉ (FLEXBOX)
+========================================================= */
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: var(--cor-fundo-clara);
+  padding: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.rodape__links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+/* =========================================================
+   RESPONSIVIDADE — BREAKPOINT TABLET (até 768px)
+========================================================= */
+@media (max-width: 768px) {
+  .sobre__conteudo {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "foto"
+      "texto";
+    text-align: center;
+  }
+
+  .sobre__foto {
+    width: 140px;
+    margin: 0 auto;
+  }
+
+  .sobre__texto h2 {
+    text-align: center;
+  }
+
+  .habilidades__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .formacao__area {
+    grid-template-columns: 1fr;
+  }
+
+  .rodape {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   RESPONSIVIDADE — BREAKPOINT CELULAR (até 480px)
+========================================================= */
+@media (max-width: 480px) {
+  .nav {
+    flex-direction: column;
+  }
+
+  .nav__lista {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .habilidades__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contato__links {
+    flex-direction: column;
+  }
+}

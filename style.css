@@ -1,0 +1,588 @@
+/* ==========================================================================
+   Portfólio — Felipe Shedler
+   Tema: roxo claro (lavanda / lilás)
+   Índice:
+   1. Variáveis
+   2. Reset e base
+   3. Componentes reutilizáveis (container, botões, tags)
+   4. Cabeçalho e menu (Flexbox)
+   5. Sobre mim (Grid com grid-template-areas)
+   6. Habilidades (Grid)
+   7. Projetos (Grid + Flexbox nos cards)
+   8. Formação e experiência (Grid)
+   9. Contato (Flexbox)
+   10. Rodapé (Flexbox)
+   11. Responsividade (breakpoints 900px e 600px)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. VARIÁVEIS
+   ========================================================================== */
+:root {
+    /* Cores */
+    --color-bg:           #f6f1ff;   /* fundo geral, lavanda bem clara */
+    --color-bg-alt:       #ede4ff;   /* fundo das seções alternadas */
+    --color-surface:      #ffffff;   /* cards */
+    --color-primary:      #7c3aed;   /* roxo principal */
+    --color-primary-dark: #5b21b6;   /* hover e títulos */
+    --color-primary-soft: #c4b5fd;   /* detalhes e bordas */
+    --color-tag-bg:       #ede9fe;   /* fundo das etiquetas */
+    --color-text:         #2e1065;   /* texto principal */
+    --color-text-muted:   #5b4b82;   /* texto secundário */
+    --color-border:       #ddd0fb;
+
+    /* Fontes */
+    --font-title: 'Poppins', Arial, sans-serif;
+    --font-body:  'Inter', Arial, sans-serif;
+
+    /* Medidas */
+    --radius:     16px;
+    --max-width:  1100px;
+    --shadow:     0 8px 24px -12px rgba(91, 33, 182, 0.35);
+}
+
+
+/* ==========================================================================
+   2. RESET E BASE
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* evita que o menu fixo cubra o título da seção */
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-title);
+    color: var(--color-primary-dark);
+    line-height: 1.2;
+}
+
+
+/* ==========================================================================
+   3. COMPONENTES REUTILIZÁVEIS
+   ========================================================================== */
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section {
+    padding: 72px 0;
+}
+
+.section--alt {
+    background: var(--color-bg-alt);
+}
+
+.section__title {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.section__subtitle {
+    color: var(--color-text-muted);
+    margin-bottom: 36px;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+    border: 2px solid var(--color-primary);
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn--primary {
+    background: var(--color-primary);
+    color: #ffffff;
+}
+
+.btn--primary:hover {
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn--outline {
+    background: transparent;
+    color: var(--color-primary-dark);
+}
+
+.btn--outline:hover {
+    background: var(--color-primary);
+    color: #ffffff;
+}
+
+/* Etiquetas (Flexbox com quebra de linha) */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tags li {
+    background: var(--color-tag-bg);
+    color: var(--color-primary-dark);
+    border: 1px solid var(--color-primary-soft);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.tags--small li {
+    padding: 3px 10px;
+    font-size: 0.75rem;
+}
+
+
+/* ==========================================================================
+   4. CABEÇALHO E MENU (Flexbox)
+   ========================================================================== */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(246, 241, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Flexbox: logo à esquerda, links à direita, centralizados na vertical */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    min-height: 68px;
+}
+
+.nav__logo {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--color-primary-dark);
+}
+
+.nav__logo span {
+    color: var(--color-primary);
+}
+
+.nav__links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav__links a {
+    color: var(--color-text-muted);
+    font-weight: 500;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav__links a:hover {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+
+/* ==========================================================================
+   5. SOBRE MIM (Grid com grid-template-areas)
+   ========================================================================== */
+.about {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-areas:
+        "foto texto"
+        "foto info";
+    gap: 32px 56px;
+    align-items: center;
+}
+
+.about__photo {
+    grid-area: foto;
+}
+
+.about__photo img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid var(--color-surface);
+    box-shadow: 0 0 0 4px var(--color-primary-soft), var(--shadow);
+}
+
+.about__text {
+    grid-area: texto;
+}
+
+.eyebrow {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+}
+
+.about__text h1 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    margin: 6px 0;
+}
+
+.about__role {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+}
+
+.about__text p:not(.eyebrow):not(.about__role) {
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+    max-width: 560px;
+}
+
+.about__info {
+    grid-area: info;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.about__info li {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.about__info strong {
+    display: block;
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+
+/* ==========================================================================
+   6. HABILIDADES (Grid)
+   ========================================================================== */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.skill-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.skill-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 16px;
+}
+
+
+/* ==========================================================================
+   7. PROJETOS (Grid na galeria + Flexbox no interior dos cards)
+   ========================================================================== */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Flexbox: imagem, título, texto e botão empilhados em coluna */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary-soft);
+}
+
+.project-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.project-card__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 12px;
+    padding: 20px;
+}
+
+.project-card__body p {
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+    flex-grow: 1;           /* empurra o botão para o final do card */
+}
+
+.project-card__body .btn {
+    align-self: flex-start; /* botão alinhado à esquerda */
+}
+
+
+/* ==========================================================================
+   8. FORMAÇÃO E EXPERIÊNCIA (Grid)
+   ========================================================================== */
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.timeline__item {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 6px solid var(--color-primary);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.timeline__item h3 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+
+.timeline__meta {
+    color: var(--color-primary);
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.timeline__item p:last-child {
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+}
+
+
+/* ==========================================================================
+   9. CONTATO (Flexbox)
+   ========================================================================== */
+.contact {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 16px;
+}
+
+.contact li {
+    flex: 1 1 200px;
+}
+
+.contact__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 18px 24px;
+    background: var(--color-surface);
+    border: 2px solid var(--color-primary-soft);
+    border-radius: var(--radius);
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.contact__link:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+
+/* ==========================================================================
+   10. RODAPÉ (Flexbox)
+   ========================================================================== */
+.footer {
+    background: var(--color-primary-dark);
+    color: #ede9fe;
+    padding: 28px 0;
+}
+
+.footer__inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer__inner p {
+    font-size: 0.9rem;
+}
+
+.footer__links {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9rem;
+}
+
+.footer__links a {
+    color: #ddd6fe;
+}
+
+.footer__links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+
+/* ==========================================================================
+   11. RESPONSIVIDADE
+   ========================================================================== */
+
+/* ---- Tablet (até 900px) ---- */
+@media (max-width: 900px) {
+    .skills {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .timeline {
+        grid-template-columns: 1fr;
+    }
+
+    /* Sobre: foto em cima, depois texto e dados (muda o grid-template-areas) */
+    .about {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "foto"
+            "texto"
+            "info";
+        text-align: center;
+        justify-items: center;
+    }
+
+    .about__photo {
+        width: 240px;
+    }
+
+    .about__text p:not(.eyebrow):not(.about__role) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about__info {
+        width: 100%;
+        text-align: left;
+    }
+}
+
+/* ---- Celular (até 600px) ---- */
+@media (max-width: 600px) {
+    .section {
+        padding: 52px 0;
+    }
+
+    /* Menu: logo em cima e links embaixo (flex-direction: column) */
+    .nav {
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        gap: 8px;
+    }
+
+    .nav__links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 18px;
+        font-size: 0.9rem;
+    }
+
+    html {
+        scroll-padding-top: 120px;
+    }
+
+    .skills,
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .about__info {
+        grid-template-columns: 1fr;
+    }
+
+    /* Contato e rodapé: passam de linha para coluna */
+    .contact {
+        flex-direction: column;
+    }
+
+    .footer__inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer__links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

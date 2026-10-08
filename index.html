@@ -1,13 +1,256 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adriele Corilina — Portfólio</title>
+    <meta name="description" content="Portfólio pessoal de Adriele Carolina , estudante de Análise e Desenvolvimento de Sistemas e desenvolvedor de software.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="script.js">
-    <title>Document</title>
 </head>
 <body>
-    
+    <header class="header">
+        <nav class="nav container" aria-label="Menu principal">
+            <a class="nav__logo" href="#sobre">Adriele<span>.dev</span></a>
+            <ul class="nav__links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#formacao">Formação</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="section" id="sobre">
+            <div class="container about">
+                <div class="about__photo">
+                    <img src="img/imagem.jpg" alt="Foto perfil">
+                </div>
+
+                <div class="about__text">
+                    <p class="eyebrow">Olá, eu sou</p>
+                    <h1>Adriele Carolina</h1>
+                    <p class="about__role">Estudante de ADS e desenvolvedor de software</p>
+                    <p>
+                        Curso Análise e Desenvolvimento de Sistemas no Senac e tenho interesse
+                        em backend, banco de dados e desenvolvimento web. Gosto de transformar
+                        ideias em sistemas funcionais, do protótipo ao deploy, usando o Git
+                        como parte do processo.
+                    </p>
+                    <a class="btn btn--primary" href="#projetos">Ver projetos</a>
+                </div>
+
+                <ul class="about__info">
+                    <li><strong>Área de interesse</strong> Backend e banco de dados</li>
+                    <li><strong>Curso</strong> Análise e Desenvolvimento de Sistemas Tecnico em Informatica</li>
+                    <li><strong>Instituição</strong> Senac Contagem</li>
+                    <li><strong>Local</strong> Contagem, MG</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== HABILIDADES (Grid) ===== -->
+        <section class="section section--alt" id="habilidades">
+            <div class="container">
+                <h2 class="section__title">Habilidades</h2>
+                <p class="section__subtitle">Tecnologias e ferramentas que utilizo nos meus projetos.</p>
+
+                <div class="skills">
+                    <article class="skill-card">
+                        <h3>Linguagens</h3>
+                        <ul class="tags">
+                            <li>Python</li>
+                            <li>JavaScript</li>
+                            <li>SQL</li>
+                        </ul>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Web</h3>
+                        <ul class="tags">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>Node.js</li>
+                        </ul>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Banco de dados</h3>
+                        <ul class="tags">
+                            <li>MySQL</li>
+                            <li>PostgreSQL</li>
+                            <li>DBeaver</li>
+                        </ul>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Ferramentas</h3>
+                        <ul class="tags">
+                            <li>Git</li>
+                            <li>GitHub</li>
+                            <li>Docker</li>
+                            <li>VS Code</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJETOS (Grid de cards + Flexbox interno) ===== -->
+        <section class="section" id="projetos">
+            <div class="container">
+                <h2 class="section__title">Projetos</h2>
+                <p class="section__subtitle">Alguns dos trabalhos acadêmicos e pessoais que desenvolvi.</p>
+
+                <div class="projects">
+
+                    <article class="project-card">
+                        <img src="img/projeto-1.svg" alt="Ilustração do projeto Yggdrasil, sistema de adoção de animais">
+                        <div class="project-card__body">
+                            <h3>Yggdrasil</h3>
+                            <p>Sistema de adoção de animais com login para ONGs e adotantes, filtros por espécie e idade.</p>
+                            <ul class="tags tags--small">
+                                <li>Node.js</li>
+                                <li>MySQL</li>
+                                <li>JWT</li>
+                            </ul>
+                            <a class="btn btn--outline" href="https://github.com/Muzgeist/Yggdrasil" target="_blank" rel="noopener">Ver no GitHub</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <img src="img/projeto-2.svg" alt="Ilustração do projeto Nexus Imports, e-commerce de hardware">
+                        <div class="project-card__body">
+                            <h3>Nexus Imports</h3>
+                            <p>E-commerce de hardware e periféricos com carrinho, login e acompanhamento de pedido.</p>
+                            <ul class="tags tags--small">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>Express</li>
+                            </ul>
+                            <a class="btn btn--outline" href="https://github.com/Muzgeist/nexus_site" target="_blank" rel="noopener">Ver no GitHub</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <img src="img/projeto-3.svg" alt="Ilustração do projeto Universidade, cadastro acadêmico">
+                        <div class="project-card__body">
+                            <h3>Universidade</h3>
+                            <p>Cadastro acadêmico de alunos, cursos e turmas com interface desktop e banco de dados.</p>
+                            <ul class="tags tags--small">
+                                <li>Python</li>
+                                <li>Tkinter</li>
+                                <li>MySQL</li>
+                            </ul>
+                            <a class="btn btn--outline" href="https://github.com/Muzgeist/universidade" target="_blank" rel="noopener">Ver no GitHub</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <img src="img/projeto-4.svg" alt="Ilustração do projeto Notícias, site com cadastro de matérias">
+                        <div class="project-card__body">
+                            <h3>Notícias</h3>
+                            <p>Site de notícias com listagem de matérias e formulário para cadastrar novas publicações.</p>
+                            <ul class="tags tags--small">
+                                <li>JavaScript</li>
+                                <li>Express</li>
+                                <li>MySQL</li>
+                            </ul>
+                            <a class="btn btn--outline" href="https://github.com/Muzgeist/noticias2" target="_blank" rel="noopener">Ver no GitHub</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <img src="img/projeto-5.svg" alt="Ilustração do projeto Wallpaper, carrossel de imagens com tema dinâmico">
+                        <div class="project-card__body">
+                            <h3>Wallpaper</h3>
+                            <p>Carrossel de wallpapers cujo tema de cores muda junto com a imagem exibida.</p>
+                            <ul class="tags tags--small">
+                                <li>JavaScript</li>
+                                <li>WebGL</li>
+                                <li>CSS</li>
+                            </ul>
+                            <a class="btn btn--outline" href="https://github.com/Muzgeist/walpaper" target="_blank" rel="noopener">Ver no GitHub</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <img src="img/projeto-6.svg" alt="Ilustração do projeto App Desktop, aplicação com interface Qt">
+                        <div class="project-card__body">
+                            <h3>App Desktop</h3>
+                            <p>Aplicação desktop com interface gráfica em Qt, empacotada como executável.</p>
+                            <ul class="tags tags--small">
+                                <li>Python</li>
+                                <li>PySide6</li>
+                                <li>PyInstaller</li>
+                            </ul>
+                            <a class="btn btn--outline" href="https://github.com/Muzgeist/app_desktop" target="_blank" rel="noopener">Ver no GitHub</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FORMAÇÃO E EXPERIÊNCIA (Grid) ===== -->
+        <section class="section section--alt" id="formacao">
+            <div class="container">
+                <h2 class="section__title">Formação e experiência</h2>
+                <p class="section__subtitle">Minha trajetória acadêmica e prática até aqui.</p>
+
+                <div class="timeline">
+                    <article class="timeline__item">
+                        <h3>Análise e Desenvolvimento de Sistemas</h3>
+                        <p class="timeline__meta">Senac Contagem · Curso superior · Em andamento</p>
+                        <p>Disciplinas de programação, banco de dados, engenharia de software e ética em TI.</p>
+                    </article>
+
+                    <article class="timeline__item">
+                        <h3>Técnico em Informática</h3>
+                        <p class="timeline__meta">Senac MG · Curso técnico</p>
+                        <p>Base em lógica de programação, desenvolvimento web e banco de dados.</p>
+                    </article>
+
+                    <article class="timeline__item">
+                        <h3>Projetos acadêmicos e pessoais</h3>
+                        <p class="timeline__meta">Experiência prática</p>
+                        <p>Modelagem de bancos de dados, sistemas web com Node.js e aplicações desktop em Python.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTATO (Flexbox) ===== -->
+        <section class="section" id="contato">
+            <div class="container">
+                <h2 class="section__title">Contato</h2>
+                <p class="section__subtitle">Vamos conversar? Escolha o canal que preferir.</p>
+
+                <ul class="contact">
+                    <li><a class="contact__link" href="mailto:adrielecarolinarr@gmail.com">E-mail</a></li>
+                    <li><a class="contact__link" href="https://github.com/Adri2905" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a class="contact__link" href="https://www.linkedin.com/in/SEU-USUARIO" target="_blank" rel="noopener">LinkedIn</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== RODAPÉ (Flexbox) ===== -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <p>© 2026 Felipe Shedler. Todos os direitos reservados.</p>
+            <ul class="footer__links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#sobre">Topo ↑</a></li>
+            </ul>
+        </div>
+    </footer>
+
 </body>
 </html>

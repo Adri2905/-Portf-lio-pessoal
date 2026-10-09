@@ -69,4 +69,53 @@ function matizDaImagem(img) {
         let h;
         if (max === r) h = ((g - b) / d) % 6;
         else if (max === g) h = (b - r) / d + 2;
-        else h = (r - g)
+        else h = (r - g) / d + 4;
+        h = (h * 60 + 360) % 360;
+
+        const faixa = Math.floor(h / 10) % 36;
+        pesos[faixa] += s;
+        somas[faixa] += h * s;
+    }
+
+    let melhor = 0;
+    for (let i = 1; i < 36; i++) if (pesos[i] > pesos[melhor]) melhor = i;
+    if (pesos[melhor] === 0) return null;
+    return Math.round(somas[melhor] / pesos[melhor]);
+}
+
+function aplicarMatiz(h) {
+    document.documentElement.style.setProperty('--h', h);
+}
+
+if (MATIZ_MANUAL !== null) {
+    aplicarMatiz(MATIZ_MANUAL);
+} else {
+    const foto = document.querySelector('.about__photo img');
+    const extrair = () => {
+        try {
+            const h = matizDaImagem(foto);
+            if (h !== null) aplicarMatiz(h);
+        } catch (erro) {
+            console.warn('Não foi possível ler as cores da foto:', erro);
+        }
+    };
+    if (foto.complete && foto.naturalWidth > 0) extrair();
+    else foto.addEventListener('load', extrair);
+}
+
+const alvos = document.querySelectorAll('.skill-card, .project-card, .timeline__item, .contact li');
+alvos.forEach(el => el.classList.add('reveal'));
+
+if ('IntersectionObserver' in window) {
+    const observador = new IntersectionObserver(entradas => {
+        entradas.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('is-visible');
+                observador.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    alvos.forEach(el => observador.observe(el));
+} else {
+    alvos.forEach(el => el.classList.add('is-visible'));
+}

@@ -1,51 +1,24 @@
-/* ==========================================================================
-   Portfólio — Felipe Shedler
-   Tema: roxo claro (lavanda / lilás)
-   Índice:
-   1. Variáveis
-   2. Reset e base
-   3. Componentes reutilizáveis (container, botões, tags)
-   4. Cabeçalho e menu (Flexbox)
-   5. Sobre mim (Grid com grid-template-areas)
-   6. Habilidades (Grid)
-   7. Projetos (Grid + Flexbox nos cards)
-   8. Formação e experiência (Grid)
-   9. Contato (Flexbox)
-   10. Rodapé (Flexbox)
-   11. Responsividade (breakpoints 900px e 600px)
-   ========================================================================== */
-
-
-/* ==========================================================================
-   1. VARIÁVEIS
-   ========================================================================== */
 :root {
-    /* Cores */
-    --color-bg:           #f6f1ff;   /* fundo geral, lavanda bem clara */
-    --color-bg-alt:       #ede4ff;   /* fundo das seções alternadas */
-    --color-surface:      #ffffff;   /* cards */
-    --color-primary:      #7c3aed;   /* roxo principal */
-    --color-primary-dark: #5b21b6;   /* hover e títulos */
-    --color-primary-soft: #c4b5fd;   /* detalhes e bordas */
-    --color-tag-bg:       #ede9fe;   /* fundo das etiquetas */
-    --color-text:         #2e1065;   /* texto principal */
-    --color-text-muted:   #5b4b82;   /* texto secundário */
-    --color-border:       #ddd0fb;
+    --h:                  262;
+    --color-bg:           hsl(var(--h) 100% 97%);
+    --color-bg-alt:       hsl(var(--h) 100% 94% / 0.70);
+    --color-surface:      #ffffff;
+    --color-primary:      hsl(var(--h) 83% 58%);
+    --color-primary-dark: hsl(var(--h) 69% 38%);
+    --color-primary-soft: hsl(var(--h) 90% 82%);
+    --color-tag-bg:       hsl(var(--h) 90% 95%);
+    --color-text:         hsl(var(--h) 70% 18%);
+    --color-text-muted:   hsl(var(--h) 28% 38%);
+    --color-border:       hsl(var(--h) 80% 90%);
 
-    /* Fontes */
     --font-title: 'Poppins', Arial, sans-serif;
     --font-body:  'Inter', Arial, sans-serif;
 
-    /* Medidas */
     --radius:     16px;
     --max-width:  1100px;
     --shadow:     0 8px 24px -12px rgba(91, 33, 182, 0.35);
 }
 
-
-/* ==========================================================================
-   2. RESET E BASE
-   ========================================================================== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -54,7 +27,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* evita que o menu fixo cubra o título da seção */
+    scroll-padding-top: 80px;
 }
 
 body {
@@ -89,10 +62,6 @@ h1, h2, h3 {
     line-height: 1.2;
 }
 
-
-/* ==========================================================================
-   3. COMPONENTES REUTILIZÁVEIS
-   ========================================================================== */
 .container {
     width: 100%;
     max-width: var(--max-width);
@@ -118,7 +87,6 @@ h1, h2, h3 {
     margin-bottom: 36px;
 }
 
-/* Botões */
 .btn {
     display: inline-block;
     padding: 12px 24px;
@@ -151,7 +119,6 @@ h1, h2, h3 {
     color: #ffffff;
 }
 
-/* Etiquetas (Flexbox com quebra de linha) */
 .tags {
     display: flex;
     flex-wrap: wrap;
@@ -173,20 +140,15 @@ h1, h2, h3 {
     font-size: 0.75rem;
 }
 
-
-/* ==========================================================================
-   4. CABEÇALHO E MENU (Flexbox)
-   ========================================================================== */
 .header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(246, 241, 255, 0.92);
+    background: hsl(var(--h) 100% 97% / 0.85);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--color-border);
 }
 
-/* Flexbox: logo à esquerda, links à direita, centralizados na vertical */
 .nav {
     display: flex;
     justify-content: space-between;
@@ -225,10 +187,6 @@ h1, h2, h3 {
     border-bottom-color: var(--color-primary);
 }
 
-
-/* ==========================================================================
-   5. SOBRE MIM (Grid com grid-template-areas)
-   ========================================================================== */
 .about {
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -298,6 +256,10 @@ h1, h2, h3 {
     color: var(--color-text-muted);
 }
 
+.about__info .about__info-wide {
+    grid-column: span 2;
+}
+
 .about__info strong {
     display: block;
     color: var(--color-primary);
@@ -306,10 +268,6 @@ h1, h2, h3 {
     letter-spacing: 0.06em;
 }
 
-
-/* ==========================================================================
-   6. HABILIDADES (Grid)
-   ========================================================================== */
 .skills {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -329,17 +287,12 @@ h1, h2, h3 {
     margin-bottom: 16px;
 }
 
-
-/* ==========================================================================
-   7. PROJETOS (Grid na galeria + Flexbox no interior dos cards)
-   ========================================================================== */
 .projects {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
-/* Flexbox: imagem, título, texto e botão empilhados em coluna */
 .project-card {
     display: flex;
     flex-direction: column;
@@ -356,10 +309,16 @@ h1, h2, h3 {
     border-color: var(--color-primary-soft);
 }
 
-.project-card img {
-    width: 100%;
+.project-card__cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     aspect-ratio: 16 / 9;
-    object-fit: cover;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-soft));
+    color: #ffffff;
+    font-family: var(--font-title);
+    font-size: 3.5rem;
+    font-weight: 700;
 }
 
 .project-card__body {
@@ -373,17 +332,13 @@ h1, h2, h3 {
 .project-card__body p {
     color: var(--color-text-muted);
     font-size: 0.92rem;
-    flex-grow: 1;           /* empurra o botão para o final do card */
+    flex-grow: 1;
 }
 
 .project-card__body .btn {
-    align-self: flex-start; /* botão alinhado à esquerda */
+    align-self: flex-start;
 }
 
-
-/* ==========================================================================
-   8. FORMAÇÃO E EXPERIÊNCIA (Grid)
-   ========================================================================== */
 .timeline {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -416,10 +371,6 @@ h1, h2, h3 {
     font-size: 0.92rem;
 }
 
-
-/* ==========================================================================
-   9. CONTATO (Flexbox)
-   ========================================================================== */
 .contact {
     display: flex;
     flex-direction: row;
@@ -454,10 +405,6 @@ h1, h2, h3 {
     transform: translateY(-3px);
 }
 
-
-/* ==========================================================================
-   10. RODAPÉ (Flexbox)
-   ========================================================================== */
 .footer {
     background: var(--color-primary-dark);
     color: #ede9fe;
@@ -491,12 +438,6 @@ h1, h2, h3 {
     text-decoration: underline;
 }
 
-
-/* ==========================================================================
-   11. RESPONSIVIDADE
-   ========================================================================== */
-
-/* ---- Tablet (até 900px) ---- */
 @media (max-width: 900px) {
     .skills {
         grid-template-columns: repeat(2, 1fr);
@@ -510,7 +451,6 @@ h1, h2, h3 {
         grid-template-columns: 1fr;
     }
 
-    /* Sobre: foto em cima, depois texto e dados (muda o grid-template-areas) */
     .about {
         grid-template-columns: 1fr;
         grid-template-areas:
@@ -536,13 +476,11 @@ h1, h2, h3 {
     }
 }
 
-/* ---- Celular (até 600px) ---- */
 @media (max-width: 600px) {
     .section {
         padding: 52px 0;
     }
 
-    /* Menu: logo em cima e links embaixo (flex-direction: column) */
     .nav {
         flex-direction: column;
         justify-content: center;
@@ -571,7 +509,10 @@ h1, h2, h3 {
         grid-template-columns: 1fr;
     }
 
-    /* Contato e rodapé: passam de linha para coluna */
+    .about__info .about__info-wide {
+        grid-column: auto;
+    }
+
     .contact {
         flex-direction: column;
     }
@@ -584,5 +525,87 @@ h1, h2, h3 {
     .footer__links {
         flex-wrap: wrap;
         justify-content: center;
+    }
+}
+
+.bg-animation {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.bg-animation span {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.55;
+    background: hsl(var(--h) 90% 75%);
+    transition: background 1s ease;
+    animation: flutuar 18s ease-in-out infinite;
+}
+
+.bg-animation span:nth-child(1) {
+    width: 420px; height: 420px;
+    top: -120px; left: -100px;
+}
+
+.bg-animation span:nth-child(2) {
+    width: 520px; height: 520px;
+    top: 35%; right: -160px;
+    background: hsl(calc(var(--h) + 40) 90% 78%);
+    animation-duration: 24s;
+    animation-delay: -6s;
+}
+
+.bg-animation span:nth-child(3) {
+    width: 380px; height: 380px;
+    bottom: -120px; left: 25%;
+    background: hsl(calc(var(--h) - 40) 90% 80%);
+    animation-duration: 21s;
+    animation-delay: -12s;
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33%      { transform: translate(60px, 80px) scale(1.12); }
+    66%      { transform: translate(-50px, 40px) scale(0.92); }
+}
+
+.about__photo img {
+    animation: respirar 5s ease-in-out infinite;
+}
+
+@keyframes respirar {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.03); }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bg-animation span,
+    .about__photo img {
+        animation: none;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    html {
+        scroll-behavior: auto;
     }
 }

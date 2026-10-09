@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adriele Corilina — Portfólio</title>
-    <meta name="description" content="Portfólio pessoal de Adriele Carolina , estudante de Análise e Desenvolvimento de Sistemas e desenvolvedor de software.">
+    <title>Adriele Carolina — Portfólio</title>
+    <meta name="description" content="Portfólio pessoal de Adriele Carolina Rodrigues Rocha, estudante de Análise e Desenvolvimento de Sistemas e desenvolvedor de software.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="bg-animation" aria-hidden="true"><span></span><span></span><span></span></div>
     <header class="header">
         <nav class="nav container" aria-label="Menu principal">
             <a class="nav__logo" href="#sobre">Adriele<span>.dev</span></a>
@@ -27,7 +28,7 @@
         <section class="section" id="sobre">
             <div class="container about">
                 <div class="about__photo">
-                    <img src="img/imagem.jpg" alt="Foto perfil">
+                    <img src="img/imagem.jpg" alt="Foto de perfil de Adriele Carolina">
                 </div>
 
                 <div class="about__text">
@@ -44,15 +45,16 @@
                 </div>
 
                 <ul class="about__info">
-                    <li><strong>Área de interesse</strong> Backend e banco de dados</li>
-                    <li><strong>Curso</strong> Análise e Desenvolvimento de Sistemas Tecnico em Informatica</li>
+                    <li class="about__info-wide"><strong>Nome completo</strong> Adriele Carolina Rodrigues Rocha</li>
+                    <li><strong>Idade</strong> <span id="idade">21</span> anos</li>
+                    <li><strong>Nascimento</strong> <time datetime="2005-05-29">29/05/2005</time></li>
+                    <li><strong>Cidade</strong> Betim, MG</li>
                     <li><strong>Instituição</strong> Senac Contagem</li>
-                    <li><strong>Local</strong> Contagem, MG</li>
+                    <li class="about__info-wide"><strong>Curso</strong> Análise e Desenvolvimento de Sistemas · Técnico em Informática</li>
                 </ul>
             </div>
         </section>
 
-        <!-- ===== HABILIDADES (Grid) ===== -->
         <section class="section section--alt" id="habilidades">
             <div class="container">
                 <h2 class="section__title">Habilidades</h2>
@@ -99,34 +101,33 @@
             </div>
         </section>
 
-        <!-- ===== PROJETOS (Grid de cards + Flexbox interno) ===== -->
         <section class="section" id="projetos">
             <div class="container">
                 <h2 class="section__title">Projetos</h2>
-                <p class="section__subtitle">Alguns dos trabalhos acadêmicos e pessoais que desenvolvi.</p>
+                <p class="section__subtitle">Trabalhos acadêmicos e pessoais, carregados direto do meu GitHub.</p>
 
                 <div class="projects">
 
-                    <article class="project-card">
-                        <img src="img/projeto-1.svg" alt="Ilustração do projeto Yggdrasil, sistema de adoção de animais">
+                    <article class="project-card" data-repo="Adri2905/universidade">
+                        <div class="project-card__cover" aria-hidden="true">U</div>
                         <div class="project-card__body">
-                            <h3>Yggdrasil</h3>
-                            <p>Sistema de adoção de animais com login para ONGs e adotantes, filtros por espécie e idade.</p>
-                            <ul class="tags tags--small">
-                                <li>Node.js</li>
+                            <h3>Universidade</h3>
+                            <p class="project-card__desc">Cadastro acadêmico de alunos, cursos e turmas com interface desktop e banco de dados.</p>
+                            <ul class="tags tags--small project-card__tags">
+                                <li>Python</li>
+                                <li>Tkinter</li>
                                 <li>MySQL</li>
-                                <li>JWT</li>
                             </ul>
-                            <a class="btn btn--outline" href="https://github.com/Muzgeist/Yggdrasil" target="_blank" rel="noopener">Ver no GitHub</a>
+                            <a class="btn btn--outline" href="https://github.com/Adri2905/universidade" target="_blank" rel="noopener">Ver no GitHub</a>
                         </div>
                     </article>
 
-                    <article class="project-card">
-                        <img src="img/projeto-2.svg" alt="Ilustração do projeto Nexus Imports, e-commerce de hardware">
+                    <article class="project-card" data-repo="Muzgeist/nexus_site">
+                        <div class="project-card__cover" aria-hidden="true">N</div>
                         <div class="project-card__body">
                             <h3>Nexus Imports</h3>
-                            <p>E-commerce de hardware e periféricos com carrinho, login e acompanhamento de pedido.</p>
-                            <ul class="tags tags--small">
+                            <p class="project-card__desc">E-commerce de hardware e periféricos com carrinho, login e acompanhamento de pedido.</p>
+                            <ul class="tags tags--small project-card__tags">
                                 <li>HTML</li>
                                 <li>CSS</li>
                                 <li>Express</li>
@@ -135,59 +136,30 @@
                         </div>
                     </article>
 
-                    <article class="project-card">
-                        <img src="img/projeto-3.svg" alt="Ilustração do projeto Universidade, cadastro acadêmico">
+                    <article class="project-card" data-repo="lvlv83863-oss/projeto-carbono-consciente">
+                        <div class="project-card__cover" aria-hidden="true">C</div>
                         <div class="project-card__body">
-                            <h3>Universidade</h3>
-                            <p>Cadastro acadêmico de alunos, cursos e turmas com interface desktop e banco de dados.</p>
-                            <ul class="tags tags--small">
-                                <li>Python</li>
-                                <li>Tkinter</li>
-                                <li>MySQL</li>
-                            </ul>
-                            <a class="btn btn--outline" href="https://github.com/Muzgeist/universidade" target="_blank" rel="noopener">Ver no GitHub</a>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <img src="img/projeto-4.svg" alt="Ilustração do projeto Notícias, site com cadastro de matérias">
-                        <div class="project-card__body">
-                            <h3>Notícias</h3>
-                            <p>Site de notícias com listagem de matérias e formulário para cadastrar novas publicações.</p>
-                            <ul class="tags tags--small">
-                                <li>JavaScript</li>
+                            <h3>Carbono Consciente</h3>
+                            <p class="project-card__desc">Site com backend em Node.js e Express e banco de dados MySQL em container Docker.</p>
+                            <ul class="tags tags--small project-card__tags">
+                                <li>Node.js</li>
                                 <li>Express</li>
                                 <li>MySQL</li>
                             </ul>
-                            <a class="btn btn--outline" href="https://github.com/Muzgeist/noticias2" target="_blank" rel="noopener">Ver no GitHub</a>
+                            <a class="btn btn--outline" href="https://github.com/lvlv83863-oss/projeto-carbono-consciente" target="_blank" rel="noopener">Ver no GitHub</a>
                         </div>
                     </article>
 
-                    <article class="project-card">
-                        <img src="img/projeto-5.svg" alt="Ilustração do projeto Wallpaper, carrossel de imagens com tema dinâmico">
+                    <article class="project-card" data-repo="Adri2905/concessionaria-tde">
+                        <div class="project-card__cover" aria-hidden="true">C</div>
                         <div class="project-card__body">
-                            <h3>Wallpaper</h3>
-                            <p>Carrossel de wallpapers cujo tema de cores muda junto com a imagem exibida.</p>
-                            <ul class="tags tags--small">
-                                <li>JavaScript</li>
-                                <li>WebGL</li>
-                                <li>CSS</li>
+                            <h3>Concessionária</h3>
+                            <p class="project-card__desc">Modelagem de banco de dados de uma concessionária: DER, modelo lógico e script SQL.</p>
+                            <ul class="tags tags--small project-card__tags">
+                                <li>PostgreSQL</li>
+                                <li>SQL</li>
                             </ul>
-                            <a class="btn btn--outline" href="https://github.com/Muzgeist/walpaper" target="_blank" rel="noopener">Ver no GitHub</a>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <img src="img/projeto-6.svg" alt="Ilustração do projeto App Desktop, aplicação com interface Qt">
-                        <div class="project-card__body">
-                            <h3>App Desktop</h3>
-                            <p>Aplicação desktop com interface gráfica em Qt, empacotada como executável.</p>
-                            <ul class="tags tags--small">
-                                <li>Python</li>
-                                <li>PySide6</li>
-                                <li>PyInstaller</li>
-                            </ul>
-                            <a class="btn btn--outline" href="https://github.com/Muzgeist/app_desktop" target="_blank" rel="noopener">Ver no GitHub</a>
+                            <a class="btn btn--outline" href="https://github.com/Adri2905/concessionaria-tde" target="_blank" rel="noopener">Ver no GitHub</a>
                         </div>
                     </article>
 
@@ -195,7 +167,6 @@
             </div>
         </section>
 
-        <!-- ===== FORMAÇÃO E EXPERIÊNCIA (Grid) ===== -->
         <section class="section section--alt" id="formacao">
             <div class="container">
                 <h2 class="section__title">Formação e experiência</h2>
@@ -223,7 +194,6 @@
             </div>
         </section>
 
-        <!-- ===== CONTATO (Flexbox) ===== -->
         <section class="section" id="contato">
             <div class="container">
                 <h2 class="section__title">Contato</h2>
@@ -232,17 +202,16 @@
                 <ul class="contact">
                     <li><a class="contact__link" href="mailto:adrielecarolinarr@gmail.com">E-mail</a></li>
                     <li><a class="contact__link" href="https://github.com/Adri2905" target="_blank" rel="noopener">GitHub</a></li>
-                    <li><a class="contact__link" href="https://www.linkedin.com/in/SEU-USUARIO" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a class="contact__link" href="https://www.linkedin.com/in/adriele-carolina-4503bb400" target="_blank" rel="noopener">LinkedIn</a></li>
                 </ul>
             </div>
         </section>
 
     </main>
 
-    <!-- ===== RODAPÉ (Flexbox) ===== -->
     <footer class="footer">
         <div class="container footer__inner">
-            <p>© 2026 Felipe Shedler. Todos os direitos reservados.</p>
+            <p>© <span id="ano">2026</span> Adriele Carolina Rodrigues Rocha. Todos os direitos reservados.</p>
             <ul class="footer__links">
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#projetos">Projetos</a></li>
@@ -252,5 +221,6 @@
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>

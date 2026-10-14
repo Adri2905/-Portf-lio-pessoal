@@ -8,7 +8,7 @@ Portfólio pessoal desenvolvido para a atividade **Portfólio Pessoal com CSS Gr
 |---|---|
 | **Aluna** | Adriele Carolina Rodrigues Rocha |
 | **Curso** | Análise e Desenvolvimento de Sistemas (ADS) — Senac Contagem |
-| **Turma** | [PREENCHER: código da turma] |
+| **Turma** | 033.2026.0163 |
 | **Atividade** | Portfólio Pessoal com CSS Grid e Flexbox (15 pontos) |
 
 ## Links
@@ -19,10 +19,10 @@ Portfólio pessoal desenvolvido para a atividade **Portfólio Pessoal com CSS Gr
 ## Prints
 
 ### Desktop
-![Print do portfólio em desktop](prints/desktop.png)
+![Print do portfólio em desktop](prints/desktop.jpg)
 
 ### Mobile
-![Print do portfólio em celular](prints/mobile.png)
+![Print do portfólio em celular](prints/mobile.jpg)
 
 ## Seções do site
 

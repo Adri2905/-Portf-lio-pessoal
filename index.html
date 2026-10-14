@@ -8,10 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="bg-animation" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <!-- Cabeçalho com menu de navegação -->
     <header class="header">
         <nav class="nav container" aria-label="Menu principal">
             <a class="nav__logo" href="#sobre">Adriele<span>.dev</span></a>
@@ -24,7 +26,9 @@
             </ul>
         </nav>
     </header>
+
     <main>
+        <!-- Apresentação / Sobre mim -->
         <section class="section" id="sobre">
             <div class="container about">
                 <div class="about__photo">
@@ -55,6 +59,7 @@
             </div>
         </section>
 
+        <!-- Habilidades -->
         <section class="section section--alt" id="habilidades">
             <div class="container">
                 <h2 class="section__title">Habilidades</h2>
@@ -101,6 +106,7 @@
             </div>
         </section>
 
+        <!-- Projetos -->
         <section class="section" id="projetos">
             <div class="container">
                 <h2 class="section__title">Projetos</h2>
@@ -109,7 +115,9 @@
                 <div class="projects">
 
                     <article class="project-card" data-repo="Adri2905/universidade">
-                        <div class="project-card__cover" aria-hidden="true">U</div>
+                        <div class="project-card__cover">
+                            <img class="project-card__img" src="img/projeto-1.png" alt="Captura de tela do sistema Universidade, com cadastro de alunos, cursos e turmas" loading="lazy">
+                        </div>
                         <div class="project-card__body">
                             <h3>Universidade</h3>
                             <p class="project-card__desc">Cadastro acadêmico de alunos, cursos e turmas com interface desktop e banco de dados.</p>
@@ -123,7 +131,9 @@
                     </article>
 
                     <article class="project-card" data-repo="Muzgeist/nexus_site">
-                        <div class="project-card__cover" aria-hidden="true">N</div>
+                        <div class="project-card__cover">
+                            <img class="project-card__img" src="img/projeto-2.png" alt="Captura de tela da loja Nexus Imports, e-commerce de hardware e periféricos" loading="lazy">
+                        </div>
                         <div class="project-card__body">
                             <h3>Nexus Imports</h3>
                             <p class="project-card__desc">E-commerce de hardware e periféricos com carrinho, login e acompanhamento de pedido.</p>
@@ -137,7 +147,9 @@
                     </article>
 
                     <article class="project-card" data-repo="lvlv83863-oss/projeto-carbono-consciente">
-                        <div class="project-card__cover" aria-hidden="true">C</div>
+                        <div class="project-card__cover">
+                            <img class="project-card__img" src="img/projeto-3.png" alt="Captura de tela do site Carbono Consciente" loading="lazy">
+                        </div>
                         <div class="project-card__body">
                             <h3>Carbono Consciente</h3>
                             <p class="project-card__desc">Site com backend em Node.js e Express e banco de dados MySQL em container Docker.</p>
@@ -151,7 +163,9 @@
                     </article>
 
                     <article class="project-card" data-repo="Adri2905/concessionaria-tde">
-                        <div class="project-card__cover" aria-hidden="true">C</div>
+                        <div class="project-card__cover">
+                            <img class="project-card__img" src="img/projeto-4.png" alt="Diagrama entidade-relacionamento do banco de dados da concessionária" loading="lazy">
+                        </div>
                         <div class="project-card__body">
                             <h3>Concessionária</h3>
                             <p class="project-card__desc">Modelagem de banco de dados de uma concessionária: DER, modelo lógico e script SQL.</p>
@@ -167,6 +181,7 @@
             </div>
         </section>
 
+        <!-- Formação e experiência -->
         <section class="section section--alt" id="formacao">
             <div class="container">
                 <h2 class="section__title">Formação e experiência</h2>
@@ -194,6 +209,7 @@
             </div>
         </section>
 
+        <!-- Contato -->
         <section class="section" id="contato">
             <div class="container">
                 <h2 class="section__title">Contato</h2>
@@ -209,6 +225,7 @@
 
     </main>
 
+    <!-- Rodapé -->
     <footer class="footer">
         <div class="container footer__inner">
             <p>© <span id="ano">2026</span> Adriele Carolina Rodrigues Rocha. Todos os direitos reservados.</p>
@@ -221,6 +238,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
